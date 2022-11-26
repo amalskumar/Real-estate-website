@@ -41,8 +41,8 @@
 			padding-right: 3px !important;
 		}
 
-		.location-search .input-group { border-right: 1px solid #EEE !important; }
-		.location-search .input-group:last-child { border-right: none !important; }
+		.location-search .input-group { border-right: 1px solid #EEE; }
+		.location-search .input-group:last-child { border-right: none ; }
 
 		.location-search .input-group-lg > .form-control:not(textarea),
 		.location-search .input-group-lg > .custom-select,
@@ -95,6 +95,9 @@
 									<a href="#" class="menu-link" data-href="#section-about"><div>About</div></a>
 								</li>
 								<li class="menu-item">
+									<a href="#" class="menu-link" data-href="#section-faq"><div>FAQs</div></a>
+								</li>
+								<li class="menu-item">
 									<a href="#" class="menu-link" data-href="#section-contact"><div>Contact</div></a>
 								</li>
 							</ul>
@@ -115,31 +118,31 @@
 					<div class="container">
 
 						<div class="row align-items-center justify-content-start text-start h-100">
-							<div class="col-md-10">
+							<div class="col-md-11">
 								<div class="emphasis-title dark bottommargin">
 									<h2 data-animate="fadeInUp faster" class="mb-0" style="font-size: 50px; font-weight: 700; font-family: 'Playfair Display', serif !important; line-height: 1.2">Do you have a home to sell?<br>Find the best offer</h2>
 								</div>
 								<form name="contactForm" id= "contactForm" action="search.html" class="shadow h-shadow-lg" method="get" data-animate="fadeInUp faster" data-delay="300">
 									<div class="row ms-md-0 mb-0 location-search align-items-center bg-white ">
-										<div class="input-group align-items-center input-group-lg col-md">
+										<div id="locationblock" class="input-group align-items-center input-group-lg col-md">
+											<i class="input-group-text icon-line-location"></i>
+											<input type="text" name="location" class="form-control" value="" placeholder="Property Addres*">
+										</div>
+									</div>
+									<div class="row ms-md-0  mb-0 location-search align-items-center bg-white " style="margin-top: -2px;">
+										<div id="phoneblock" class="input-group align-items-center input-group-lg col-md">
+											<i class="input-group-text icon-phone"></i>
+											<input type="text" name="phone" class="form-control" value="" placeholder="Phone*">
+										</div>
+										<div id="nameblock" style="margin-left: -2px;" class="input-group align-items-center input-group-lg col-md">
 											<i class="input-group-text icon-user1"></i>
 											<input type="text" name="name" class="form-control" value="" placeholder="Name*" required>
 										</div>
 										<div class="input-group align-items-center input-group-lg col-md">
 											<i class="input-group-text icon-email"></i>
-											<input type="text" name="email" class="form-control" value="" placeholder="Email*">
+											<input type="text" name="email" class="form-control" value="" placeholder="Email">
 										</div>
-										<div class="input-group align-items-center input-group-lg col-md">
-											<i class="input-group-text icon-phone"></i>
-											<input type="text" name="phone" class="form-control" value="" placeholder="Phone">
-										</div>
-									</div>
-									<div class="row ms-md-0  mb-0 location-search align-items-center bg-white ">
 
-										<div class="input-group align-items-center input-group-lg col-md">
-											<i class="input-group-text icon-line-location"></i>
-											<input type="text" name="location" class="form-control" value="" placeholder="Enter Your Address*">
-										</div>
 										<div class="col-md-auto p-1">
 											<a onclick="submitform()" class="button button-large button-light text-dark m-0 d-flex align-items-center justify-content-center px-5 h-op-09">Get my offer</a>
 										</div>
@@ -161,14 +164,20 @@
 function submitform(){
 	let items = [];
 	document.getElementById("contact-form-error-block").style.display = 'none';
+	document.getElementById("nameblock").style.border = 'none';
+	document.getElementById("phoneblock").style.border = 'none';
+	document.getElementById("locationblock").style.border = 'none';
 	if( document.contactForm.name.value == "" ) {
             items.push('Name');
+			document.getElementById("nameblock").style.border = '2px solid red';
          }
 	if( document.contactForm.phone.value == "" ) {
 			items.push('Phone number');
+			document.getElementById("phoneblock").style.border = '2px solid red';
          }
 	if( document.contactForm.location.value == "" ) {
 			items.push('Address');
+			document.getElementById("locationblock").style.border = '2px solid red';
          }
 	if(items.length>0){
 		document.getElementById("contact-form-error-block").style.display = 'block';
@@ -432,6 +441,64 @@ function submitform(){
 					<div class="topmargin center"><a href="#" data-scrollto="wrapper" data-offset="140" data-easing="easeInOutExpo" data-speed="1250"  class="button button-border button-circle fw-semibold">Get your offer</a></div>
 
 				</div>
+
+
+<div id="section-faq" class="pt-0">
+	<div class="section m-0">
+		<div class="container clearfix">
+			<div class="mx-auto center" style="max-width: 900px;">
+				<h2 class="mb-0 ls1 mb-4">Frequently Asked Questions</h2>
+			</div>
+			<div class="accordion" data-collapsible="true">
+
+				<div class="accordion-header">
+					<div class="accordion-icon">
+						<i class="accordion-closed icon-ok-circle"></i>
+						<i class="accordion-open icon-remove-circle"></i>
+					</div>
+					<div class="accordion-title">
+						Is there any obligation when I submit my info?
+					</div>
+				</div>
+				<div class="accordion-content">There is ZERO obligation or hassle when you call or send up your information. We know you have options, and we would like to share them with you. You don’t have to settle for a listing when that might not make the most sense for you. Learn about your options, run the numbers for yourself and make a smart and informed decision before you commit to a Florida real estate agent. We will NEVER put any pressure on you to sell.</div>
+		
+				<div class="accordion-header">
+					<div class="accordion-icon">
+						<i class="accordion-closed icon-ok-circle"></i>
+						<i class="accordion-open icon-remove-circle"></i>
+					</div>
+					<div class="accordion-title">
+						Will I have to pay any fees or commissions if I sell my property to you?
+					</div>
+				</div>
+				<div class="accordion-content">There are no fees or commissions when you sell your house to us. If we make an offer and you accept, we buy your home and often pay for closing costs too. We take the risk on whether we can sell for a profit once we buy the house from you and make the repairs, if any. The responsibility is all ours, and you walk away without the burden of the property and the potential payments that come with it.</div>
+		
+				<div class="accordion-header" id="id-accordion-3">
+					<div class="accordion-icon">
+						<i class="accordion-closed icon-ok-circle"></i>
+						<i class="accordion-open icon-remove-circle"></i>
+					</div>
+					<div class="accordion-title">
+						How are you different from a real estate agent?
+					</div>
+				</div>
+				<div class="accordion-content">Real estate agents list properties and hope that someone will buy them. The agent shows the properties to prospective buyers if there are any (the average time to sell a property in many markets right now is 6-12 months) and then take a percentage of the sale price if they find a buyer. Oftentimes, the agent’s commission is 3-6% of the sale price of your house (so if it’s a $100,000 house, you’ll pay between $3,000 – $6,000 in commissions to an agent). Agents provide a great service for those that can wait 6-12 months to sell and who don’t mind giving up some of that sale price to pay for the commissions. But that’s where we’re different: We’re not agents, we’re home buyers. Our company actually buys houses. We don’t list houses. Since we’re actually the one buying the house from you, and we pay with all cash… we can make a decision to buy your house within a couple days (sometimes the same day). Again, we make our living by taking the risk to buy the house with our own cash, repair the house, and market it ourselves to find a buyer (which is the hard part in this market).</div>
+				<div class="accordion-header" id="id-accordion-4">
+					<div class="accordion-icon">
+						<i class="accordion-closed icon-ok-circle"></i>
+						<i class="accordion-open icon-remove-circle"></i>
+					</div>
+					<div class="accordion-title">
+						Where are you currently buying houses?
+					</div>
+				</div>
+				<div class="accordion-content">Where are you currently buying houses?</div>
+		
+			</div>
+		</div>
+	</div>
+
+</div>
 
 
 				<div id="section-contact" class="pt-0">
