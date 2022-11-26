@@ -1,0 +1,44 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Handling Updates
+-----------------------------------------------------------------*/
+
+
+#contactForm input:-webkit-autofill,
+#contactForm input:-webkit-autofill:hover,
+#contactForm input:-webkit-autofill:focus,
+#contactForm input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s!important;
+}
+
+#contact-form-error-block, #contact-form-success-block{
+	display: none;
+}
+.contact-form-error, .contact-form-success{
+	margin-top: 5px;
+}
+.contact-form-error{
+	background-color: #fff0f0;
+}
+.contact-form-success{
+	background-color: #abffc1;
+}
+
+.contact-form-error .error-text, .contact-form-success .success-text{
+	margin: 5px 0!important;
+	font-size: 14px;
+}
+.contact-form-error .error-text{
+	color: red;
+}
+.contact-form-success .success-text{
+	color: green;
+}
+.op-gradient-icon {
+    background: rgb(131, 58, 180);
+    background: linear-gradient( 90deg, rgba(131, 58, 180, 1) 0%, rgb(44 207 236) 50%, rgb(8 68 132) 100% );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
