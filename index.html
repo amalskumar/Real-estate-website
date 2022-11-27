@@ -132,7 +132,7 @@
 									<div class="row ms-md-0  mb-0 location-search align-items-center bg-white " style="margin-top: -2px;">
 										<div id="phoneblock" class="input-group align-items-center input-group-lg col-md">
 											<i class="input-group-text icon-phone"></i>
-											<input type="text" name="phone" class="form-control" value="" placeholder="Phone*">
+											<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="phone" class="form-control" value="" placeholder="Phone*">
 										</div>
 										<div id="nameblock" style="margin-left: -2px;" class="input-group align-items-center input-group-lg col-md">
 											<i class="input-group-text icon-user1"></i>
@@ -163,30 +163,36 @@
 
 function submitform(){
 	let items = [];
-	document.getElementById("contact-form-error-block").style.display = 'none';
+	// document.getElementById("contact-form-error-block").style.display = 'none';
 	document.getElementById("nameblock").style.border = 'none';
 	document.getElementById("phoneblock").style.border = 'none';
 	document.getElementById("locationblock").style.border = 'none';
+	document.getElementById("nameblock").getElementsByClassName("input-group-text")[0].style.color = 'black';
+	document.getElementById("phoneblock").getElementsByClassName("input-group-text")[0].style.color = 'black';
+	document.getElementById("locationblock").getElementsByClassName("input-group-text")[0].style.color = 'black';
 	if( document.contactForm.name.value == "" ) {
             items.push('Name');
 			document.getElementById("nameblock").style.border = '2px solid red';
+			document.getElementById("nameblock").getElementsByClassName("input-group-text")[0].style.color = 'red';
          }
 	if( document.contactForm.phone.value == "" ) {
 			items.push('Phone number');
 			document.getElementById("phoneblock").style.border = '2px solid red';
+			document.getElementById("phoneblock").getElementsByClassName("input-group-text")[0].style.color = 'red';
          }
 	if( document.contactForm.location.value == "" ) {
 			items.push('Address');
 			document.getElementById("locationblock").style.border = '2px solid red';
+			document.getElementById("locationblock").getElementsByClassName("input-group-text")[0].style.color = 'red';
          }
 	if(items.length>0){
-		document.getElementById("contact-form-error-block").style.display = 'block';
-		if(items.length==1){
-			document.getElementById("error-text").innerHTML = `${items[0]} is mandatory`;
-		}else{
-			var erroritems = items.slice(0, -1).join(', ')+' and '+items.slice(-1);
-			document.getElementById("error-text").innerHTML = `${erroritems} are mandatory`;
-		}
+		// document.getElementById("contact-form-error-block").style.display = 'block';
+		// if(items.length==1){
+		// 	document.getElementById("error-text").innerHTML = `${items[0]} is mandatory`;
+		// }else{
+		// 	var erroritems = items.slice(0, -1).join(', ')+' and '+items.slice(-1);
+		// 	document.getElementById("error-text").innerHTML = `${erroritems} are mandatory`;
+		// }
 		return false;
 	}else{
 		document.getElementById("contact-form-success-block").style.display = 'block';
