@@ -13,7 +13,7 @@
     transition: background-color 5000s ease-in-out 0s!important;
 }
 
-#contact-form-error-block, #contact-form-success-block{
+#contact-form-error-block, #contact-form-success-block, #message-notification{
 	display: none;
 }
 .contact-form-error, .contact-form-success{
@@ -24,6 +24,7 @@
 }
 .contact-form-success{
 	background-color: #abffc1;
+	border-radius: 10px;
 }
 
 .contact-form-error .error-text, .contact-form-success .success-text{
@@ -33,9 +34,11 @@
 }
 .contact-form-error .error-text{
 	color: red;
+	text-align: center;
 }
 .contact-form-success .success-text{
 	color: green;
+	text-align: center;
 }
 .op-gradient-icon {
     background: rgb(131, 58, 180);

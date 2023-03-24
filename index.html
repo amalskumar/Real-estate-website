@@ -329,13 +329,6 @@
                   "red";
               }
               if (items.length > 0) {
-                // document.getElementById("contact-form-error-block").style.display = 'block';
-                // if(items.length==1){
-                // 	document.getElementById("error-text").innerHTML = `${items[0]} is mandatory`;
-                // }else{
-                // 	var erroritems = items.slice(0, -1).join(', ')+' and '+items.slice(-1);
-                // 	document.getElementById("error-text").innerHTML = `${erroritems} are mandatory`;
-                // }
                 return false;
               } else {
                 var formValues = new FormData(document.forms.contactForm);
@@ -348,7 +341,7 @@
                   document.getElementById(
                     "contact-form-success-block"
                   ).style.display = "none";
-                }, 3000);
+                }, 5000);
               }
             }
           </script>
@@ -873,11 +866,14 @@
                         >Send Message</a
                       >
                       <br />
-                      <small
-                        id="message-notification"
-                        style="display: none; font-size: 13px; margin-top: 15px"
-                        >We'll do our best to get back to you soon</small
-                      >
+                      <div id="message-notification">
+                        <div class="contact-form-success">
+                          <p class="success-text">
+                            We received your interest. Our executive will
+                            contact you shortly.
+                          </p>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="w-100"></div>
@@ -924,7 +920,7 @@
             setTimeout(() => {
               document.getElementById("message-notification").style.display =
                 "none";
-            }, 3000);
+            }, 5000);
           }
         }
       </script>
